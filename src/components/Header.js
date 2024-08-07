@@ -2,11 +2,19 @@ import React from 'react'
 import { RxHamburgerMenu } from "react-icons/rx";
 import { FaUserCircle } from "react-icons/fa";
 import { BsSearch } from "react-icons/bs";
+import { useDispatch } from 'react-redux';
+import { toggleMenu } from '../utils/sidebarslice';
 const Header = () => {
+  const dispatch=useDispatch()
+
+  const sidebarmenu=()=>{
+    dispatch(toggleMenu())
+
+  }
   return (
     <div className='grid grid-flow-col p-5 shadow-sm'>
         <div className='flex col-span-2'>
-            <RxHamburgerMenu className='h-14 text-2xl'/>
+            <RxHamburgerMenu className='h-14 text-2xl cursor-pointer'onClick={sidebarmenu}/>
             <img className='h-14 mx-2'src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT769bgfTT-i73ZB4S0VR6Z_A4YEZyAOa92YQ&s" alt="Youtube" />
 
 
